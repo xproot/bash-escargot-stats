@@ -5,5 +5,5 @@ and checking the time taken using `time` (shitty script i know)
 Needs
 * **Bash**
 * Netcat
-* Grub
+* grep
 
