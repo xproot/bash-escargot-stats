@@ -3,6 +3,8 @@
 #Escargot status for bash script made by
 #xpuser/tlwxpuser/thatxpuser/xproot :D
 
+#tell the user the script is actually running.
+echo "Working..."
 #Calculating the epoch s and ns to ms i believe and making it start var
 start=`echo $(($(date +%s%N)/1000000))`
 #Netcat to escargot and wait for response
