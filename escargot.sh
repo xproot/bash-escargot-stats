@@ -29,8 +29,10 @@ if [ $ms -gt 4999 ]; then
 fi
 
 #if its more than 14999ms then its offline (nc will timeout around now)
+#also sets the time to 15000ms removing the execution time (i should make it like 15090 instead of 14999 or something)
 if [ $ms -gt 14999 ]; then
  status="Offline :("
+ ms="15000"
 fi
 
 #checking how many characters are in the ms var
