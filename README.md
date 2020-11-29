@@ -1,9 +1,9 @@
-# bash-escargot-status
-Bash script that checks Escargot's status by netcatting to m1.escargot.log1p.xyz
-and checking the time taken using `time` (shitty script i know)
+# bash-escargot-stats
+Bash scripts that checks Escargot's status and stats (currently online users only)
 
 Needs
-* **Bash**
-* Netcat
-* grep
+* **Bash** (both scripts)
+* Netcat (status only)
+* grep  (status only)
+* curl (stats only)
 
