@@ -7,4 +7,4 @@ Needs
 * grep  (status only)
 * curl (stats only)
 
-_Psst!_ you can change the status script timeout with `-timeout (seconds)`
+_Psst!_ you can change the status script timeout with `--timeout (seconds)`
