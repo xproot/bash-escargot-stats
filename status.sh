@@ -9,11 +9,26 @@ timeoutms0=15000
 timeoutms=14999
 
 # If bash $0=status.sh $1 is not blank then
-if [ ! $1 == "" ]; then
+if [ ! "$1" == "" ]; then
  # then if $1 = --timeout then
- if [ $1 == "--timeout" ]; then
+ if [ "$1" == "--timeout" ]; then
   # then if $2 = a number then
   if [[ $2 =~ ^[0-9]+$ ]]; then
+   # if $3 doesn't equal nothing then
+   if [ ! "$3" == "" ]; then
+    # display error message
+    echo "Invalid option or parameter '$3'"
+    echo "Usage: bash status.sh [--timeout seconds]"
+    echo "--timeout changes the seconds until the script times out and"
+    echo "assumes escargot is down."
+    exit 1
+   fi
+   # if characters in $2 is greater than 6
+   if [ "${#2}" -gt "6" ]; then
+    # display error message with no help
+    echo "Timeout value is too big! make it smaller before using this script again."
+    exit 1
+   fi
    # set overridding variables
    ms000="000"
    timeout="$2"
@@ -21,15 +36,15 @@ if [ ! $1 == "" ]; then
    timeoutms=`expr $timeoutms0 - 1`
    # if false then display help
   else
-   echo "Usage: bash status.sh [-timeout seconds]"
-   echo "-timeout changes the seconds until the script times out and"
+   echo "Usage: bash status.sh [--timeout seconds]"
+   echo "--timeout changes the seconds until the script times out and"
    echo "assumes escargot is down."
    exit 1
   fi
  # if false then display help
  else
-  echo "Usage: bash status.sh [-timeout seconds]"
-  echo "-timeout changes the seconds until the script times out and"
+  echo "Usage: bash status.sh [--timeout seconds]"
+  echo "--timeout changes the seconds until the script times out and"
   echo "assumes escargot is down."
   exit 1
  fi
@@ -56,13 +71,13 @@ ms=$((end-start))
 status="Online :D"
 
 # if its more than 4999ms then its congested
-if [ $ms -gt 4999 ]; then
+if [ "$ms" -gt 4999 ]; then
  status="Congested :/"
 fi
 
 # if its more than 14999ms(normally unless set) then its offline (nc will timeout around now)
 # also sets the time to 15000ms(normally unless set) removing the execution time (i should make it remove the execution time for more exact time)
-if [ $ms -gt $timeoutms ]; then
+if [ "$ms" -gt "$timeoutms" ]; then
  status="Offline :("
  ms="$timeoutms0"
 fi
