@@ -101,6 +101,18 @@ case $grep in
           splitm=${ms:2:4}
           timetaken="$splits seconds, $splitm ms"
           ;;
+     6)
+          # XXX seconds, XXXms.
+          splits=${ms:0:3}
+          splitm=${ms:3:5}
+          timetaken="$splits seconds, $splitm ms"
+          ;;
+     7)
+          # XXXX seconds, XXXms.
+          splits=${ms:0:4}
+          splitm=${ms:4:6}
+          timetaken="$splits seconds, $splitm ms"
+          ;;
      *)
 	  # anything else is *ms.
           timetaken="$ms ms"
