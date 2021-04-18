@@ -1,4 +1,4 @@
-# bash-escargot-stats
+# bash-escargot-stats (NO LONGER MAINTAINED)
 Bash scripts that checks Escargot's status and stats (currently online users only)
 
 Needs
