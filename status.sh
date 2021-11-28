@@ -57,7 +57,7 @@ echo "Working..."
 start=`echo $(($(date +%s%N)/1000000))`
 
 # Netcat to escargot and wait for response
-output=`echo 'VER 1 XP' | nc -w $timeout m1.escargot.log1p.xyz 1863`
+output=`echo 'VER 1 XP' | nc -w $timeout m1.escargot.chat 1863`
 
 # Calculating the epoch s and ns to ms i believe and making it end var
 end=`echo $(($(date +%s%N)/1000000))`
